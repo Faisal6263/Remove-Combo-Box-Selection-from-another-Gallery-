@@ -1,0 +1,23 @@
+You can easily get into a circular condition that might cause you some grief.
+
+Be that as it may...here is what you can do.
+
+You will need to rely on a Collection to create the functionality.
+
+So, ComboBox1 (we'll call it - but this is whatever name you have for that ComboBox) will have the following:
+
+  OnChange :  ClearCollect(colComboItems, ComboBox1.SelectedItems)
+
+  DefaultSelectedItems : colComboItems
+
+In your Gallery:
+
+  Items:  colComboItems
+
+  On the Delete Icon:
+
+  OnSelect : Remove(colComboItems, ThisItem); Reset(ComboBox1)
+
+ 
+
+The above will give you what you want.
